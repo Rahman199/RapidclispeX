@@ -1,0 +1,50 @@
+<link rel="import" href="version.html">
+<link rel="import" href="bower_components/polymer/lib/elements/custom-style.html">
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            canvas {
+                width: 500px;
+                height: 700px;
+                border: 3px solid black;
+                border-radius: 10px;
+            }
+            button {
+                outline :0;
+                border: none;
+                border-radius: 3px;
+                color: white;
+                background: black;
+                width: 100px;
+                height: 40px;
+                transition: all .1s ease-in-out;
+            }
+            button:hover {
+                background:  none;
+                border: 3px solid black;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="pdf_canvas"></canvas>
+        <div class="container">
+                <button id="prev_page">Previos Page</button>
+                <button id="next_page">next Page</button>
+                <span id="current_page_num"></span>
+                    of
+                <span id="total_page_num"></span>
+                    
+                <input type="text" id="page_num">
+                <button id="go_to_page">Go To Page</button>
+        </div>
+        
+        <!-- Replace pdf.js with downloaded pdf.js file -->
+        <script src="pdf.js" charset="utf-8"></script>
+        <script src="script.js" charset="utf-8"></script>
+    </body>
+</html>

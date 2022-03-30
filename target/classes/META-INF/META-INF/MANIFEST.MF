@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Vaadin-Package-Version: 1
+Vaadin-Addon: pdf-browser-3.1.0.jar
+Implementation-Vendor: Alejandro Duarte
+Implementation-Title: pdf-browser
+Implementation-Version: 3.1.0

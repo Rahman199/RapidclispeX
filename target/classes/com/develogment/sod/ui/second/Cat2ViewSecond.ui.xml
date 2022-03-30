@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<?xdevuiml version="1.0"?>
+<?template BROWSER_XGA?>
+<?import com.develogment.sod.ui.second.Cat2MainContainer?>
+<?import com.rapidclipse.framework.server.charts.bar.ColumnChart?>
+<?import com.rapidclipse.framework.server.charts.pie.PieChart?>
+<?import com.vaadin.flow.component.html.Label?>
+<?import com.vaadin.flow.component.orderedlayout.HorizontalLayout?>
+<?import com.vaadin.flow.component.orderedlayout.VerticalLayout?>
+<VerticalLayout xmlns:x="http://xml.xdev-software.com/xdevuiml" x:routeLayout="Cat2MainContainer" x:name="Cat2ViewSecond" x:route="second">
+    <x:constraints zpos="0" width="100%" height="-1px" />
+    <Label x:name="lblContent" text=" Chart">
+        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+        <x:styles>
+            <entry name="font-size" value="5em" />
+        </x:styles>
+    </Label>
+    <VerticalLayout x:name="verticalLayout">
+        <x:constraints width="100%" height="-1px" flex-grow="0.0" />
+        <HorizontalLayout x:name="horizontalLayout2">
+            <x:constraints width="100%" height="-1px" flex-grow="0.0" />
+        </HorizontalLayout>
+        <HorizontalLayout x:name="horizontalLayout">
+            <x:constraints width="948px" height="-1px" flex-grow="0.0" />
+            <ColumnChart title="Movie Production Countries " x:name="columnChart" focusTarget="com.rapidclipse.framework.server.charts.FocusTarget.CATEGORY">
+                <x:constraints width="100%" height="0px" flex-grow="0.0" />
+            </ColumnChart>
+            <PieChart title="Total Sales by Store Location" chartHeight="500" x:name="pieChart" is3D="true" chartWidth="500" fontName="" pieStartAngle="50" sliceVisibilityThreshold="0.0018" pieHole="2" fontSize="18">
+                <x:constraints width="100%" alignment="CENTER" height="0px" flex-grow="0.0" />
+            </PieChart>
+        </HorizontalLayout>
+    </VerticalLayout>
+</VerticalLayout>

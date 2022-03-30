@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<?xdevuiml version="1.0"?>
+<?template BROWSER_XGA?>
+<?import com.develogment.sod.ui.second.Cat2MainContainer?>
+<?import com.vaadin.flow.component.html.H3?>
+<?import com.vaadin.flow.component.orderedlayout.VerticalLayout?>
+<VerticalLayout xmlns:x="http://xml.xdev-software.com/xdevuiml" x:routeLayout="Cat2MainContainer" minHeight="0" spacing="false" x:name="Cat2ViewFirst" x:scrollbars="com.rapidclipse.vaadin.editor.model.ScrollbarsPolicy.VERTICAL" x:route="first">
+    <x:constraints zpos="0" width="-1px" height="-1px" />
+    <H3 x:name="h3" text="images">
+        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+    </H3>
+</VerticalLayout>

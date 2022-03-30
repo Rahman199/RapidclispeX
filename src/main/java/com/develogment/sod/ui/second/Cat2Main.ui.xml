@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<?xdevuiml version="1.0"?>
+<?template BROWSER_XGA?>
+<?import com.develogment.sod.ui.second.Cat2MainContainer?>
+<?import com.vaadin.flow.component.html.Label?>
+<?import com.vaadin.flow.component.orderedlayout.VerticalLayout?>
+<VerticalLayout xmlns:x="http://xml.xdev-software.com/xdevuiml" x:routeLayout="Cat2MainContainer" x:name="Cat2Main" x:route="">
+    <x:constraints width="100%" zpos="0" height="-1px" />
+    <Label x:name="lblContent" text="media">
+        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+        <x:styles>
+            <entry name="font-size" value="5em" />
+        </x:styles>
+    </Label>
+</VerticalLayout>

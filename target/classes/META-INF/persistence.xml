@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="Sod">
+		<provider>
+			org.hibernate.jpa.HibernatePersistenceProvider
+		</provider>
+		<class>com.develogment.sod.domain.Staff</class>
+		<class>com.develogment.sod.domain.Language</class>
+		<class>com.develogment.sod.domain.Store</class>
+		<class>com.develogment.sod.domain.Film</class>
+		<class>com.develogment.sod.domain.Country</class>
+		<class>com.develogment.sod.domain.DeptEmpId</class>
+		<class>com.develogment.sod.domain.Employee</class>
+		<class>com.develogment.sod.domain.Log</class>
+		<class>com.develogment.sod.domain.Department</class>
+		<class>com.develogment.sod.domain.City</class>
+		<class>com.develogment.sod.domain.TitleId</class>
+		<class>com.develogment.sod.domain.FilmText</class>
+		<class>com.develogment.sod.domain.FilmActor</class>
+		<class>com.develogment.sod.domain.Actor</class>
+		<class>com.develogment.sod.domain.Payment</class>
+		<class>com.develogment.sod.domain.DeptManagerId</class>
+		<class>com.develogment.sod.domain.FilmActorId</class>
+		<class>com.develogment.sod.domain.DeptEmp</class>
+		<class>com.develogment.sod.domain.Address</class>
+		<class>com.develogment.sod.domain.DeptManager</class>
+		<class>com.develogment.sod.domain.FilmCategoryId</class>
+		<class>com.develogment.sod.domain.Salary</class>
+		<class>com.develogment.sod.domain.Rental</class>
+		<class>com.develogment.sod.domain.Title</class>
+		<class>com.develogment.sod.domain.User</class>
+		<class>com.develogment.sod.domain.Inventory</class>
+		<class>com.develogment.sod.domain.Customer</class>
+		<class>com.develogment.sod.domain.SalaryId</class>
+		<class>com.develogment.sod.domain.Category</class>
+		<class>com.develogment.sod.domain.FilmCategory</class>
+		<class>com.develogment.sod.domain.SalesByFilmCategory</class>
+		<class>com.develogment.sod.domain.CustomerList</class>
+		<class>com.develogment.sod.domain.SalesByFilmCategoryId</class>
+		<class>
+			com.develogment.sod.domain.NicerButSlowerFilmListId
+		</class>
+		<class>com.develogment.sod.domain.FilmListId</class>
+		<class>com.develogment.sod.domain.ActorInfoId</class>
+		<class>com.develogment.sod.domain.NicerButSlowerFilmList</class>
+		<class>com.develogment.sod.domain.FilmList</class>
+		<class>com.develogment.sod.domain.SalesByStoreId</class>
+		<class>com.develogment.sod.domain.StaffListId</class>
+		<class>com.develogment.sod.domain.DeptEmpLatestDate</class>
+		<class>com.develogment.sod.domain.CurrentDeptEmp</class>
+		<class>com.develogment.sod.domain.CustomerListId</class>
+		<class>com.develogment.sod.domain.CurrentDeptEmpId</class>
+		<class>com.develogment.sod.domain.DeptEmpLatestDateId</class>
+		<class>com.develogment.sod.domain.ActorInfo</class>
+		<class>com.develogment.sod.domain.StaffList</class>
+		<class>com.develogment.sod.domain.SalesByStore</class>
+		<class>com.develogment.sod.domain.MoviesWorldwide</class>
+		<class>com.develogment.sod.domain.SaleId</class>
+		<class>com.develogment.sod.domain.Productsstore</class>
+		<class>com.develogment.sod.domain.Sale</class>
+		<class>com.develogment.sod.domain.Product</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+			<property name="javax.persistence.sharedCache.mode"
+				value="ENABLE_SELECTIVE" />
+			<property name="hibernate.c3p0.max_size" value="100" />
+			<property name="hibernate.c3p0.idle_test_period"
+				value="300" />
+			<property name="hibernate.c3p0.max_statements" value="50" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL57InnoDBDialect" />
+			<property name="hibernate.cache.use_query_cache"
+				value="true" />
+			<property name="hibernate.c3p0.min_size" value="1" />
+			<property name="rap.queryCache.mode"
+				value="ENABLE_SELECTIVE" />
+			<property name="hibernate.archive.autodetection" value="" />
+			<property name="hibernate.cache.use_second_level_cache"
+				value="true" />
+			<property name="hibernate.c3p0.timeout" value="3000" />
+			<property name="hibernate.transaction.auto_close_session"
+				value="false" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/sakila?serverTimezone=UTC" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="hibernate.javax.cache.uri"
+				value="classpath:ehcache.xml" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.cache.region.factory_class"
+				value="org.hibernate.cache.jcache.JCacheRegionFactory" />
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.password"
+				value="Lovetala1010" />
+			<property name="hibernate.generate_statistics"
+				value="false" />
+			<property name="hibernate.auto_quote_keyword" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>

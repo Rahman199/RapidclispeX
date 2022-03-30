@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<?xdevuiml version="1.0"?>
+<?template NONE?>
+<?import com.vaadin.flow.component.button.Button?>
+<?import com.vaadin.flow.component.orderedlayout.HorizontalLayout?>
+<?import com.vaadin.flow.component.orderedlayout.VerticalLayout?>
+<VerticalLayout xmlns:x="http://xml.xdev-software.com/xdevuiml" spacing="false" x:name="MainContainer" padding="false" defaultHorizontalComponentAlignment="com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment.STRETCH" x:routerLayout="true">
+    <x:constraints zpos="0" width="100%" height="100%" />
+    <HorizontalLayout className="my-header" spacing="false" x:name="navContainerMain" maxWidth="null" defaultVerticalComponentAlignment="com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment.STRETCH">
+        <x:constraints width="100%" height="-1px" flex-grow="0.0" />
+        <Button className="my-navbutton" x:name="btnHome">
+            <x:icon src="com.vaadin.flow.component.icon.VaadinIcon#HOME" />
+            <x:constraints width="-1px" height="0px" flex-grow="0.0" />
+            <x:event>click.onComponentEvent</x:event>
+        </Button>
+        <Button className="my-navbutton" x:name="btnNavCat1" text="documents">
+            <x:constraints width="0px" height="0px" flex-grow="0.0" />
+            <x:event>click.onComponentEvent</x:event>
+        </Button>
+        <Button className="my-navbutton" x:name="btnNavCat2" text="media">
+            <x:constraints width="0px" height="0px" flex-grow="0.0" />
+            <x:event>click.onComponentEvent</x:event>
+        </Button>
+        <Button className="my-navbutton" x:name="button" text="Grid">
+            <x:constraints width="0px" height="0px" flex-grow="0.0" />
+            <x:event>click.onComponentEvent</x:event>
+        </Button>
+    </HorizontalLayout>
+</VerticalLayout>

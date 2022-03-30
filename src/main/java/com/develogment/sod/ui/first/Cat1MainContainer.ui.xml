@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<?xdevuiml version="1.0"?>
+<?template BROWSER_XGA?>
+<?import com.develogment.sod.ui.MainContainer?>
+<?import com.vaadin.flow.component.button.Button?>
+<?import com.vaadin.flow.component.orderedlayout.HorizontalLayout?>
+<?import com.vaadin.flow.component.orderedlayout.VerticalLayout?>
+<HorizontalLayout xmlns:x="http://xml.xdev-software.com/xdevuiml" x:routeLayout="MainContainer" className="my-category" minHeight="0" spacing="false" x:name="Cat1MainContainer" defaultVerticalComponentAlignment="com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment.STRETCH" x:routerLayout="true">
+    <x:constraints zpos="0" width="-1px" height="-1px" />
+    <VerticalLayout className="my-menu" minHeight="0" spacing="false" x:name="navMenu" x:scrollbars="com.rapidclipse.vaadin.editor.model.ScrollbarsPolicy.VERTICAL" maxWidth="300px" padding="false" minWidth="300px" defaultHorizontalComponentAlignment="com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment.STRETCH">
+        <x:constraints width="-1px" height="-1px" flex-grow="0.0" />
+        <Button className="my-navbutton" x:name="btnView1" text="documentation">
+            <x:constraints width="0px" height="0px" flex-grow="0.0" />
+            <x:event>click.onComponentEvent</x:event>
+        </Button>
+        <Button className="my-navbutton" x:name="btnView2" text="tutorials">
+            <x:constraints width="0px" height="0px" flex-grow="0.0" />
+            <x:event>click.onComponentEvent</x:event>
+        </Button>
+        <Button className="my-navbutton" x:name="btnView3" text="examples">
+            <x:constraints width="0px" height="0px" flex-grow="0.0" />
+            <x:event>click.onComponentEvent</x:event>
+        </Button>
+    </VerticalLayout>
+</HorizontalLayout>

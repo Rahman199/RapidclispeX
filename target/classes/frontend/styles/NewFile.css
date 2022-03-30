@@ -1,0 +1,15 @@
+@charset "UTF-8";
+<vaadin-tabs>
+  <vaadin-tab>
+    <iron-icon icon="lumo:user"></iron-icon>
+    <span>Tab one</span>
+  </vaadin-tab>
+  <vaadin-tab>
+    <iron-icon icon="lumo:cog"></iron-icon>
+    <span>Tab two</span>
+  </vaadin-tab>
+  <vaadin-tab>
+    <iron-icon icon="lumo:bell"></iron-icon>
+    <span>Tab three</span>
+  </vaadin-tab>
+</vaadin-tabs>
