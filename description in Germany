@@ -1,0 +1,764 @@
+
+
+Hier findet man die Linke, die ich für mein Projekt sinnvoll gefunden habe.
+
+1.RapidClipse :
+https://rapidclipse.atlassian.net/wiki/spaces/RCXDOCDE/overview
+
+in diesem Link findet man die Dokumentation schriftlich, und mit dem die Hauptkomponente geklärt ist.
+
+https://www.youtube.com/channel/UC6EIHHfzXXMSIKqKuGfJBMA
+
+jeder Anfänger soll mit diesem Channel unbedingt anfangen und  sich anschauen ,wie man die Komponente mit einander benutzen.
+Dieser Channel stellt RapidClipse Dokus, Tutorials, Interviews, Konferenzsessions und alles was es rund um RapidClipse zu Wissen gibt zur Verfügung.
+P.S: Obwohl der Inhalt in diesem Channel für RapidClipse 4 erstellt ist, und leider gibt es noch keine Aktualisierung für den Inhalt (Es gibt Unterschied zwischen RapidClipse 4 und 10 ) , aber trotzdem kann man eigentlich das Prinzip verstehen wie man mit den Komponenten, Database und Vaadin umgehen kann .
+
+2. Vaadin :
+https://vaadin.com/docs/v14/
+
+In diesem Link findet man die Dokumentation schriftlich, und mit dem die Hauptkomponente in Rapid besser dargestellt.
+
+
+
+
+In Vaadin gibt mehrere Dokumentationen, die man unbedingt einmal durchlesen muss.
+Wie der folgende Inhalt in dem Link
+
+https://vaadin.com/components/
+
+
+Unter diesem Link kann man die Komponente Beispiel dafür finden, wie man beispielweise einen Button aus clean Code schreiben kann.
+Mal angenommen, das du die eingegebene Daten in einem online Formular wie E-Mail ohne @ geschrieben hat, mit der Notifikation zeigst du den Benutzern  wieso die eingegebene E-Mail nicht stimmt, daher braucht man sich seine Kenntnisse auch in Vaadin zu erweitern, da nicht immer einen neuen Class in RapidClipse sinnvoller ist (Clean Code), sondern mit drei Zeile kann man einen Code schreiben, wo drin  den Fehler enthält.
+
+Noch dazu gibt es Vaadin Lumo - Editor:
+https://demo.vaadin.com/lumo-editor/
+Erstellst du deine eigene Version das Lumo-Thema mit diesem einfachen Editor! Konfiguriere mal die Farben, Schriftarten, Größe und Abstände sowie das Styling der Komponenten, lädst du dann das resultierende CSS herunter und verwend es in RapidClipse.
+
+Es gibt noch zwei wichtige Linke, die man entweder nach einer Lösung beim auftretenden Problem oder nach Klassenhierarchie sucht, findet bei:
+3.Stack Overflow: https://stackoverflow.com/questions/tagged/vaadin
+
+Plattform: Vorgeschlagene Lösung für die angestoßene Probleme.
+4.GitHub: https://github.com/vaadin
+
+
+Plattform: fertige Projekte kann man davon was profitieren (Mit RapidClipse muss man das Prinzip verstehen und danach nach Vaadin Code zu suchen, sonst verschwindet man nur Zeit und Mühe). 
+
+
+
+
+Mein Projekt vorstellen 
+
+RapidClipse bietet Ihnen einen GUI-Builder, mit dem Sie grafische Oberflächen per Drag-and-Drop erstellen können. Im Hintergrund generiert RapidClipse Javacode auf Basis von Vaadin. Das Endergebnis zur Laufzeit ist eine HTML5 / JavaScript Oberfläche, die im Web-Browser dargestellt wird. 
+
+Meine Aufgabe war es, ein Projekt zu erstellen, mit vielen UI Komponenten, dazu soll Daten von meiner Database importiert werden, und die zur Manipulation zu lassen. Am Ende soll ich mir sicher sein, dass ich schon den Überblick habe, und schon die genügende Erfahrung in Java, Html, CSS, Vaadin und MySQL haben.
+
+Außerdem Sollte ich meisten Komponenten in meinem Software darstellen, wie Layout, Spalten, Menü Bar, Dialog, Chart, Formular, Div., Filter, Tabelle, CSS, Html und Java Skript.
+Die Aufgebe sollte mir mehr das Layout (Vertikal und Horizontal) und die Komponente von dem UI Framework näherbringen. Die UI bietet die Möglichkeit, hierarchische Datenquellen in der Tabelle anzuzeigen und zu bearbeiten.
+
+Der Inhalt: Methoden und Tricks für jede Klasse:
+
+Ich möchte hier einen kleinen Überblick geben, was es in jeder Klasse gibt.
+
+Erste Klasse: (Menü Bar)
+
+1. Menü Bar erstellen 
+1.1. Sub Menü erstellen 
+2. Themen Change
+3. Ein Icon erstellen
+
+Zweite Klasse (Grid Erstellen):
+
+1. Foto Upload.
+2, Foto type umwandeln (von OutSream zum byte[]  ).
+3. Foto in Database speichern.
+4. Neue Daten in Database speichern und in der Tabelle Speichern.
+5. Alte Daten von der Tabelle bearbeiten sogar löschen.
+6. Dialog öffnen.
+7. Die Tabelle erfrischen
+
+Dritte Klasse (Dialog):
+
+1.	Die selektierten Daten aus der Tabelle in diesem Dialog zeigen.
+2.	Kunde Daten bearbeiten.
+3.	Foto auf dem Rechner herunterladen.
+4.	Success Notification beim geklappten Herunterladen
+5.	Foto als Kreisform Zeigen
+6.	Der Wert aus unserer Tabelle wieder hier aufruft (der selektierte Kunde).
+
+
+Vierte Klasse (Chart):
+
+1. Chart aus der Database (MySql) als Pie Chart visualisieren.
+2. Hintergrund des Charts wechseln.
+
+
+Fünfte Klasse (Shop Seite):
+
+1. Style Html with RapidClipse. 
+2. Java script with RapidClipse.
+3. Pdf oder Text als Frame Zeigen und Herunterladen
+4. Andere Type File wird gebeten zu Herunterladen. 
+5.Auch here wird Foto und Pdf File zum OutStrem gewandelt.
+
+
+
+
+Menü Bar:
+
+
+
+Das Menü in dieser UI frame ist fest und in viele Quelle als Hauptmenü genannt. Es gibt entweder Vertikale oder Horizontale Menü.
+
+
+
+public class MainContainer extends VerticalLayout implements PageConfigurator, RouterLayout
+
+{
+	private final Button theme;
+
+	public MainContainer()
+	{
+		super();
+		this.initUI();
+		this.theme = new Button(new Icon(VaadinIcon.PALETE));
+		this.theme.addClickListener(e -> this.ThemeChange());
+		this.FixMenu();
+
+	}
+
+	private void FixMenu()
+	{
+
+// Hauptmenü erstellen
+		final MenuBar menuBar = new MenuBar();
+		menuBar.setOpenOnHover(true);
+// add Icon oder Item für Hauptmenü
+		final MenuItem project        = menuBar.addItem("Customer");
+		final MenuItem account        = menuBar.addItem("Account");
+//Submenü erstellen 
+		final SubMenu  projectSubMenu = project.getSubMenu();
+
+
+		final MenuItem users =
+			projectSubMenu.addItem("Customer Details", e -> this.openCustomerView());
+
+		final MenuItem billing      = projectSubMenu.addItem("Chart");
+		final SubMenu  usersSubMenu = billing.getSubMenu();
+		usersSubMenu.addItem((VaadinIcon.BAR_CHART_H.create()), e -> UI.getCurrent().navigate(Cat2ViewSecond.class));
+
+		usersSubMenu.add(new RouterLink(" " + "Customer Chart with RouterLink", Cat2ViewSecond.class));
+		menuBar.setSizeUndefined();
+
+		this.navContainerMain.add(this.btnHome, this.btnNavCat1, this.btnNavCat2, this.button, menuBar, this.theme);
+
+	}
+
+/* Dies verändert das Thema Beispiel von heller Mode zum Dark.
+
+vergiss nicht deine Style in Frontend als Html File zu speichern und dann Here aufzurufen*/
+
+	private Object ThemeChange()
+	{
+
+		final ThemeList themeList = UI.getCurrent().getElement().getThemeList();
+		if(themeList.contains(Lumo.DARK))
+		{ //
+
+			themeList.remove(Lumo.DARK);
+		}
+		else
+		{
+			themeList.add(Lumo.DARK);
+		}
+		return this.theme;
+
+	}
+
+	private Object openCustomerView()
+	{
+
+		final List<Payment> findAll = new PaymentDAO().findAll();
+		if (findAll != null && findAll.size() > 0)
+		{
+			final CustomerDetailsView detailsView = new CustomerDetailsView();
+			detailsView.setPayment(findAll.get(0));
+			detailsView.open();
+
+		}
+
+		return null;
+	}
+
+
+
+Grid Erstellen:
+
+In dieser folgenden Seite sieht man viele Komponente, lass uns von oben bis unten die identifizieren.
+Zuerst gibt das Menü bar und sieht es ganz oben.
+Dann es gibt einen Filter um bestimmte Daten in unsere untere Tabelle zu begrenzen.
+Ganz Links findet man FormLayout und drin steht Label wie Amount und Customer usw..
+Was besonders in here das man auch ein Foto für die Kunden im Database speichern kann (sieht es man ganz unten beim Upload File Button).
+Darunter findet man Button um die Info zu speichern, neu erstellen oder sogar löschen.
+Die Hauptfunktion in dieser Seite, dass man die Tabelle aus unsere Databases visualisieren und manipulieren kann. 
+In der Tabelle findet man ein kleines Symbol „Setting „dazu kommen wir später.  
+
+
+
+
+
+
+@PageTitle("Grid Test")
+@Entity(name = "customer")
+/* ganz wichtiiig jede Klasse hat Unique Name und wird durch diese
+@Route identifiziert*/
+@Route(value = "GridTest", layout = MainContainer.class)
+
+public class PaymentGrid extends VerticalLayout implements Receiver, RouterLayout
+{
+	@PersistenceContext
+	private EntityManager em;
+
+	// database connection settings
+
+	/**
+	 *
+	 */
+	private File                  file;
+	private ByteArrayOutputStream outStream = null;
+// Hier bereiten wir den File vor 
+	public File getFile()
+	{
+		return this.file;
+	}
+
+	public PaymentGrid()
+	{
+		super();
+		this.initUI();
+
+		this.upload.setReceiver(this);
+	}
+
+/* Durch diese untere Methode Können wir das Foto von OutputStream zum byte[] verwandeln und in unsere Database speichern*/
+
+	@Override
+	public OutputStream receiveUpload(final String fileName, final String mimeType)
+	{
+		this.outStream = new ByteArrayOutputStream();
+		final File temporaryDirectory =
+			(File)VaadinServlet.getCurrent().getServletContext().getAttribute(ServletContext.TEMPDIR);
+		this.file = new File(temporaryDirectory + fileName);
+
+		return this.outStream;
+
+	}
+
+/*
+ Hier wird eine Methode geschrieben, Falls wir einen Bezahlugn (Payment) aus der Tabelle selktieren wollen, um in das FormLayout  zu zeigen
+*/
+
+	public Payment getSelectedPayment()
+	{
+		final Set<Payment> selectedItems = this.theGrid.getSelectedItems();
+		if(selectedItems != null && selectedItems.size() > 0)
+		{
+			final Payment payment = selectedItems.stream().findFirst().get();
+			return payment;
+		}
+
+		return null;
+
+	}
+
+// wird die neue eingegebne Daten vom FormLayout in der Database speichern
+	private void btnNew_onClick(final ClickEvent<Button> event)
+	{
+		this.binder.setBean(new Payment());
+		this.form.setVisible(true);
+
+	}
+
+
+// wird die selektierten Daten aus der Tabelle in der Database gespeichert
+	private void btnSave_onClick(final ClickEvent<Button> event)
+	{
+		if(this.binder.isValid())
+		{
+			final Payment bean = this.binder.getBean();
+
+			final boolean isNew = bean.getPaymentId() == null;
+
+			PaymentDAO.INSTANCE.save(bean);
+
+			if(isNew)
+			{
+				this.theGrid.setItems(PaymentDAO.INSTANCE.findAll());
+				this.theGrid.select(bean);
+			}
+			else
+			{
+				this.theGrid.getDataProvider().refreshItem(bean);
+			}
+
+		}
+
+	}
+
+
+
+
+	public void refresh()
+	{
+
+		this.theGrid.getDataProvider().refreshAll();
+	}
+
+
+
+/**
+Diese Untere Methode ist dafür verantwortlich :
+
+Wenn man zwei Mal nach einander auf eine Reihe in der Tabelle klickt, wird das FormLayout invisible sein.
+*/
+	private void theGrid_selectionChange(final SelectionEvent<Grid<Payment>, Payment> event)
+	{
+		final Payment selectedPayment = this.getSelectedPayment();
+		if(selectedPayment != null)
+		{
+			this.binder.setBean(selectedPayment);
+			this.form.setVisible(true);
+		}
+		else
+		{
+			this.form.setVisible(false);
+		}
+
+	}
+
+	/**
+	Here wird das Foto gespeichert 
+	 */
+	private void upload_onFinished(final FinishedEvent event)
+	{
+		if(this.outStream != null)
+		{
+
+			final byte[] byteArray = this.outStream.toByteArray();
+
+			final Payment payment = this.getSelectedPayment();
+			if(payment != null && payment.getCustomer() != null)
+			{
+				final String   mimeType = event.getMIMEType();
+				final Customer customer = payment.getCustomer();
+				customer.setPicture(byteArray);
+				customer.setMime(mimeType);
+				new CustomerDAO().save(customer);
+			}
+
+		}
+	}
+
+
+Dialog Erstellen:
+
+Wenn man auf die Setting Symbol in der Tabelle klickt, wird dieser Dialog geöffnet und die Daten von der Kunde in 2 Tabs gestellt.
+
+
+
+
+
+
+
+public class CustomerDetailsView extends Dialog
+{
+
+	private Payment  payment;
+	private Runnable listener;
+	File             file;
+
+	/**
+	 *
+	 */
+
+	public CustomerDetailsView()
+	{
+		super();
+		this.initUI();
+
+	}
+
+/*
+Durch diese Methode wird die selektierte Daten aus der Tabelle in diesem Dialog gezeigt
+*/
+
+	public CustomerDetailsView setPayment(final Payment payment)
+	{
+
+		this.payment = payment;
+
+		this.binder.setBean(payment.getCustomer());
+
+		return this;
+
+	}
+
+/* Hier wird wieder das richtige selektierte Item aufgerufen, beispielweise habe ich auf Payment Id nummer 100 */
+
+	public CustomerDetailsView setSavedCallback(final Runnable listener)
+	{
+
+		this.listener = listener;
+		return this;
+
+	}
+
+
+
+	private Image convertImage(final byte[] imageData)
+
+	{
+
+		final StreamResource streamResource = new StreamResource("", new InputStreamFactory()
+		{
+			@Override
+			public InputStream createInputStream()
+			{
+				if(imageData != null)
+				{
+					return new ByteArrayInputStream(imageData);
+				}
+				else
+				{
+					return null;
+				}
+			}
+		});
+		return new Image(streamResource, " ");
+	}
+
+	/**
+Hier wird die Tabs definiert.
+In dem zweiten Tab wird das Foto und der Name gezeigt 
+
+und kann man das Foto auf dem Desktop speichern.
+ */
+
+	private void tabs_onSelectedChange(final SelectedChangeEvent event)
+	{
+
+		final Label        label   = new Label();
+		final Notification notif   = new Notification("saved successfully");
+		final byte[]       picture = this.payment.getCustomer().getPicture();
+
+		final Image            convertImage      = this.convertImage(picture);
+		final HorizontalLayout horizontalLayout2 = new HorizontalLayout();
+		final Button           downloadButton    = new Button("Download Photo");
+		downloadButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+		downloadButton.addThemeVariants(ButtonVariant.LUMO_SUCCESS);
+		downloadButton.setSizeUndefined();
+		downloadButton.setAutofocus(true);
+
+		this.verticalLayout.removeAll();
+		convertImage.getStyle().set("borderRadius", "70%");
+		convertImage.setWidth("200px");
+		convertImage.setHeight("200px");
+		label.add("Hi!" + " " + this.payment.getCustomer().getFirstName() + " "
+			+ this.payment.getCustomer().getLastName());
+
+		final String selection = event.getSelectedTab().getLabel();
+		this.verticalLayout.add(this.tabs);
+		this.verticalLayout.setSpacing(true);
+
+		if(selection.contentEquals("Customer Details"))
+
+		{
+
+			this.verticalLayout.setVisible(true);
+			this.verticalLayout.add(this.tabs);
+			this.verticalLayout.add(this.form);
+
+		}
+
+		else if(selection.contentEquals("Image Customer"))
+		{
+
+			final StreamResource streamResource =
+				new StreamResource("fileName.extName", () -> new ByteArrayInputStream(picture));
+
+			downloadButton.addClickListener(e -> {
+
+				if(picture != null)
+				{
+
+					streamResource.setCacheTime(5);
+
+					try
+					{
+
+						// Process char
+
+						final FileOutputStream fos =
+							new FileOutputStream(
+								"C:\\Users\\Alharash\\Desktop\\image.jpg");
+
+						{
+							fos.write(picture);
+						}
+						fos.close();
+
+						notif.open();
+						notif.setPosition(com.vaadin.flow.component.notification.Notification.Position.BOTTOM_END);
+						notif.setDuration(8);
+
+					}
+					catch(final IOException eve)
+					{
+						// TODO Auto-generated catch block
+						eve.printStackTrace();
+					}
+
+				}
+			});
+
+			horizontalLayout2.add(convertImage);
+			horizontalLayout2.setAlignItems(Alignment.START);
+			horizontalLayout2.setJustifyContentMode((FlexComponent.JustifyContentMode.CENTER));
+			this.verticalLayout.add(horizontalLayout2);
+			this.verticalLayout.add("Hallo" + " " + this.payment.getCustomer().getFirstName() + " "
+				+ this.payment.getCustomer().getLastName());
+			this.verticalLayout.add(downloadButton);
+			this.verticalLayout.setPadding(true);
+			this.verticalLayout.setAlignItems(Alignment.CENTER);
+			downloadButton.getElement().getStyle().set("margin-bottom", "auto");
+			this.verticalLayout.setSizeUndefined();
+
+		}
+
+		else if(selection.contentEquals("Drei"))
+
+		{
+			this.verticalLayout.setVisible(true);
+			this.form.setVisible(true);
+
+		}
+
+	}
+
+
+	private void button_onClick(final ClickEvent<Button> event)
+	{
+
+// Anzeige geklappte Notifikation 
+
+		final Notification myNotification = new Notification();
+		myNotification.setDuration(2000); // Zeige die Notification fÃ¼r 2 Sekunden
+		myNotification.setText("Die Informationen wurden gespeichert "); // Setze den Text auf "!"
+		myNotification.setPosition(Position.BOTTOM_CENTER); // Die Notification soll von unten in der Mitte erscheinen
+		myNotification.addThemeVariants(NotificationVariant.LUMO_SUCCESS); 
+
+
+
+		final Customer customer = this.payment.getCustomer();
+		this.binder.setBean(this.payment.getCustomer());
+		if(this.payment != null && this.payment.getCustomer() != null)
+		{
+			this.binder.setBean(this.payment.getCustomer());
+			new CustomerDAO().save(customer);
+			this.close();
+			this.listener.run();
+			myNotification.open();
+		}
+
+	}
+
+
+	private void button2_onClick(final ClickEvent<Button> event)
+	{
+		this.binder.removeBean();
+	}
+
+
+
+
+
+Chart Class:
+
+Visualisieren von Datenmengen durch  den Chart .
+
+
+
+public class Cat2ViewSecond extends VerticalLayout
+{
+
+	public Cat2ViewSecond()
+	{
+		super();
+		this.initUI();
+
+/*
+Hier wird einen Chart erstellt und in dem unsere benötigten Daten dargestellt werden 
+*/
+		final ChartModel model = ChartModel.New()
+			.addColumn(Column.New(Type.STRING))
+			.addColumn(Column.New(Type.NUMBER));
+
+		SalesByStoreDAO.INSTANCE.findAll().forEach(p -> {
+			model.addRow(p.getId().getStore(), p.getId().getTotalSales());
+
+		});
+
+		this.pieChart.setBackground(Background.Color("#b3b184"));
+		this.pieChart.setModel(model);
+		this.pieChart.setIs3D(true);
+
+		final ChartModel table = ChartModel.New()
+			.addColumn(Column.New(Type.STRING, "Production Countries", "Production Countries"))
+			.addColumn(Column.New(Type.NUMBER, "Average", "Average Production Budget "))
+			.addColumn(Column.New(Type.NUMBER, "Number of Movies", "Number of Movies "))
+			.addColumn(Column.New(Type.NUMBER, "Total Worldwide Box Office", "Total Worldwide Box Office"));
+
+		MoviesWorldwideDAO.INSTANCE.findAll().forEach(p -> {
+			table.addRow(p.getProductionCountries(), p.getAverageProductionBudget(),
+				p.getNoOfMovies(), p.getTotalWorldwideBoxOffice());
+
+		});
+		final TextStyle textStyle = TextStyle.Builder()
+			.fontSize(20)
+			.build();
+		this.columnChart.setTitleTextStyle(textStyle);
+		this.columnChart.setStackMode(StackMode.TRUE);
+		this.columnChart.setModel(table);
+		final Legend legend = Legend.Builder()
+			.position(Position.RIGHT)
+			.maxLines(5)
+			.build();
+		this.columnChart.setLegend(legend);
+		this.columnChart.setBackground(Background.Color("#b3b184"));
+	}
+
+
+
+
+
+
+
+
+Shop Seite:
+
+Mit dieser Seite bin sehr mit Html und CSS beschäftigt.
+Um man Html und CSS File importieren zu können, soll einen File wie (pdf.html) im Frontend erstellen und danach mit dieser @ Notation im Java File wie Here (Shop klasse) wieder aufrufen
+@HtmlImport("frontend://styles/pdf.html")
+@CSSImport ("frontend://styles/CssDevelogme.css")
+
+
+@HtmlImport("frontend://styles/pdf.html")
+@CSSImport ("frontend://styles/CssDevelogme.css")
+
+
+public class KaufWindows extends VerticalLayout
+{
+	Product          product;
+	File             file;
+	FileOutputStream fos = null;
+
+	/**
+	 *
+	 */
+	public KaufWindows()
+	{
+		super();
+		this.initUI();
+		this.CustomerMessagesView();
+
+	}
+
+/* Hier wird eine Schleife benutzt,jedes Photo  mit Label in einem Div erzeugt
+*/
+	private void CustomerMessagesView()
+	{
+
+		ProductDAO.INSTANCE.findAll().forEach(p -> {
+			if(p.getImage() != null && p.getProductName() != null)
+			{
+
+				final Image imageByte = this.convertImage(p.getImage());
+				imageByte.setWidth("200px");
+				imageByte.setHeight("200px");
+				imageByte.addClickListener(e -> {
+
+					final byte[]         description = p.getDescription();
+					final VerticalLayout layout      = new VerticalLayout();
+
+					final StreamResource streamResource = new StreamResource(
+						"report.pdf", () -> this.getClass().getResourceAsStream("/report1.jrxml"));
+ // file in
+																									// src/main/resources/
+
+					final StreamResource   resource =
+						new StreamResource("report.pdf",
+							() -> this.getClass().getResourceAsStream("META-INF://report.pdf"));
+
+// PdfBrowserViewer Klasse wird hier aufgerufen um mal zu schauen, ob das File als Pdf dargestellt kann oder soll der  Benutzern einfach es herunterladen(manche Datei könnte den Browser überhaupt nicht darstellen wie Excel .
+					final PdfBrowserViewer viewer   = new PdfBrowserViewer(streamResource);
+					viewer.setHeight("100%");
+
+/*
+Hier wird ein Frame erstellt, damit unsere Pdf Datei einfach in einem Browser Frame anzeigen zu lassen.
+mit dieser perfekten Methode verzichten wir auf viele Klasse, die damals mit RapidClipse 4 gehabt haben müssten.
+*/
+					final IFrame iframe = new IFrame("META-INF://report.pdf");
+					iframe.setHeight("70%");
+
+					final Dialog window = new Dialog();
+
+					window.setWidth("80%");
+
+					window.setHeight("80%");
+					window.add(new Label(p.getProductName()));
+					window.add(viewer, layout);
+					window.open();
+					final HtmlObject htmlPreview = new HtmlObject(resource, "application/pdf");
+					htmlPreview.setSizeFull();
+					window.add(htmlPreview);
+					window.setModal(true);
+					// VaadinSession.getCurrent().getBrowser().getBrowserApplication();
+
+
+
+				});
+
+				this.imagelayout.add(imageByte);
+				this.labelDiv.add(p.getProductName());
+				this.imagelayout.setVisible(true);
+
+			}
+
+		});
+
+	}
+
+
+//Anzeigen Bilder aus der Database 
+
+	private Image convertImage(final byte[] imageBytes)
+	{
+
+		final StreamResource streamResource = new StreamResource("", new InputStreamFactory()
+		{
+			@Override
+			public InputStream createInputStream()
+			{
+				if(imageBytes != null)
+				{
+					return new ByteArrayInputStream(imageBytes);
+				}
+				else
+				{
+					return null;
+				}
+			}
+
+		});
+
+		return new Image(streamResource, " ");
+	}
